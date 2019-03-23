@@ -1,0 +1,5 @@
+#gcc -c -o tap.o tap.c
+#ar -rcs libtab.a tap.o
+
+cd ./tap
+build shared library

@@ -1,7 +1,7 @@
-CFLAGS  = `pkg-config --cflags gobject-2.0` -I. -g
-LDFLAGS = `pkg-config --libs gobject-2.0` -L. -ltap
-PROGS   = 01-media-from-book/media 02-point-inheritance/dopoints 03-order-of-callbacks/doorders 04-define-type-macros/dot 05-bank-account/robthebank 06-binary-tree/testbtree 07-currency-interfaces/launder
-BPROGS  = media dopoints doorders dot robthebank testbtree launder
+CFLAGS  = `pkg-config --cflags gobject-2.0` `pkg-config --cflags gio-2.0` -I. -g
+LDFLAGS = `pkg-config --libs gobject-2.0` `pkg-config --cflags gio-2.0` -L. -ltap
+PROGS   = 01-media-from-book/media 02-point-inheritance/dopoints 03-order-of-callbacks/doorders 04-define-type-macros/dot 05-bank-account/robthebank 06-binary-tree/testbtree 07-currency-interfaces/launder x01-gmainloop-io-example/gmainloop-io-example
+BPROGS  = media dopoints doorders dot robthebank testbtree launder gmainloop-io-example
 
 all: ${PROGS}
 
@@ -36,4 +36,6 @@ clean:
 	gcc ${CFLAGS} -o $@ 07-currency-interfaces/comparable.c 07-currency-interfaces/eq.c 07-currency-interfaces/launder.c 07-currency-interfaces/printable.c 07-currency-interfaces/uscurrency.c ${LDFLAGS}
 	cp -v 07-currency-interfaces/launder .
 
-
+x01-gmainloop-io-example/gmainloop-io-example: x01-gmainloop-io-example/gmainloop-io-example.c 
+	gcc ${CFLAGS} -o $@ x01-gmainloop-io-example/gmainloop-io-example.c ${LDFLAGS}
+	cp -v x01-gmainloop-io-example/gmainloop-io-example .
