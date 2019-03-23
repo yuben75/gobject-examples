@@ -1,5 +1,5 @@
-CFLAGS  = `pkg-config --cflags gobject-2.0` `pkg-config --cflags gio-2.0` -I. -g
-LDFLAGS = `pkg-config --libs gobject-2.0` `pkg-config --cflags gio-2.0` -L. -ltap
+CFLAGS  = `pkg-config --cflags gobject-2.0` `pkg-config --cflags gio-2.0` `pkg-config --cflags gthread-2.0` `pkg-config --cflags glib-2.0` `pkg-config --cflags gobject-2.0` -I. -g
+LDFLAGS = `pkg-config --libs gobject-2.0` `pkg-config --libs gio-2.0` `pkg-config --libs gthread-2.0` `pkg-config --libs glib-2.0` `pkg-config --libs gobject-2.0` -L. -ltap
 PROGS   = 01-media-from-book/media 02-point-inheritance/dopoints 03-order-of-callbacks/doorders 04-define-type-macros/dot 05-bank-account/robthebank 06-binary-tree/testbtree 07-currency-interfaces/launder x01-gmainloop-io-example/gmainloop-io-example
 BPROGS  = media dopoints doorders dot robthebank testbtree launder gmainloop-io-example
 
