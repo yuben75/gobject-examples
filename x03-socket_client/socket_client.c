@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
 	g_message("###################################3");
 
-    guint8 buffer[]={170, 255, 255, 1, 204, 125, 128};
+    guint8 buffer[]= "ABCDEF\n";
     guint8 incoming_buff[100]={0};
 
     GInputStream * in_stream = g_io_stream_get_input_stream(G_IO_STREAM(connection));
