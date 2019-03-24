@@ -25,9 +25,18 @@ static gboolean dispatch(GSource *source, GSourceFunc callback, gpointer user_da
     MySource *mysource = (MySource *)source;
 
     g_print("%s\n", mysource->text);
+    if(callback)
+      callback(mysource);
+    return TRUE;
+}
+
+static gboolean watch(GSource *source)
+{
+    g_print("[%s]\n", __func__);
 
     return TRUE;
 }
+
 
 int main(void)
 {
@@ -44,6 +53,8 @@ int main(void)
 
     g_sprintf(((MySource *)source[0])->text, "source[0]");
     g_sprintf(((MySource *)source[1])->text, "source[1]");
+
+    g_source_set_callback(source[1], (GSourceFunc)watch, NULL, NULL);
 
     g_source_attach(source[0], context[0]);
     g_source_attach(source[1], context[1]);
