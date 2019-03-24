@@ -143,7 +143,7 @@ QMAKE_CXXFLAGS += -std=c++0x -pthread
 
 
 LIBS += -pthread  -dl
-LIBS += -pthread  -lglib-2.0
+LIBS += -pthread  -lglib-2.0 -lgobject-2.0 -lgio-2.0 -lgobject-2.0 -lgthread-2.0
 contains(QDEFS, .*arm.*) {
     #LIBS += -L./library/$$TARGET_DIR -levse
     #LIBS += -L./library/$$TARGET_DIR -lpev
