@@ -1,0 +1,1 @@
+http://fred-zone.blogspot.com/2009/08/glib-gtimeout.html
