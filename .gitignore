@@ -1,2 +1,13 @@
 *.a
 *.o
+*~
+media
+dopoints
+doorders
+dot
+robthebank
+testbtree
+launder
+gmainloop-io-example
+libtap*
+

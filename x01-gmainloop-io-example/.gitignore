@@ -1,0 +1,7 @@
+*.a
+*.o
+obj
+out_test
+xxx.map
+*.pro
+Makefile
