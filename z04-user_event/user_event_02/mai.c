@@ -42,9 +42,8 @@ int main(void)
 {
     GMainLoop *loop = g_main_loop_new(NULL, TRUE);
 
-    GMainContext *context[2];
-    context[0]= g_main_loop_get_context(loop);
-    //context[1]= g_main_loop_get_context(loop);
+    GMainContext *context;
+    context= g_main_loop_get_context(loop);
     GSourceFuncs source_funcs = {prepare, check, dispatch, NULL};
 
     GSource *source[2];
@@ -56,16 +55,15 @@ int main(void)
 
     g_source_set_callback(source[1], (GSourceFunc)watch, NULL, NULL);
 
-    g_source_attach(source[0], context[0]);
-    g_source_attach(source[1], context[1]);
+    g_source_attach(source[0], context);
+    g_source_attach(source[1], context);
 
     g_source_unref(source[0]);
     g_source_unref(source[1]);
 
     g_main_loop_run(loop);
 
-    g_main_context_unref(context[0]);
-    g_main_context_unref(context[1]);
+    g_main_context_unref(context);
     g_main_loop_unref(loop);
 
     return 0;
