@@ -12,13 +12,13 @@
 */
 int main(int argc, char *argv[])
 {
-
     GError *error = NULL;
+	g_type_init();	
 
+	g_message("###################################2");
     GSocketClient * client = g_socket_client_new();
-
     //GSocketConnection * connection = g_socket_client_connect_to_host (client,"10.9.27.15",5000,NULL,&error);
-    GSocketConnection * connection = g_socket_client_connect_to_host (client,"localhost",9100,NULL,&error);
+    GSocketConnection * connection = g_socket_client_connect_to_host (client,"localhost",4000,NULL,&error);
 
 
     if (error){
@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
     }else{
         g_message("Connection ok");
     }
+
+	g_message("###################################3");
 
     guint8 buffer[]={170, 255, 255, 1, 204, 125, 128};
     guint8 incoming_buff[100]={0};
