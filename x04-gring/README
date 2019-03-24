@@ -1,0 +1,9 @@
+This is a crappy little ring buffer I'm making.  Nothing special, just a fixed
+size array with some methods/macros to make it easier.
+
+This data structure *is not* meant for byte buffers.  It would be incredibly
+inefficient at that.  It is meant for holding things like integers, doubles,
+and pointers (but patches to fix this are welcome).
+
+-- Christian
+
